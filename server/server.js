@@ -8,7 +8,8 @@ import { StaticRouter } from 'react-router-dom';
 import {Toaster} from 'react-hot-toast';
 import {Provider} from 'react-redux';
 import { store } from '../src/Redux/store.js';
-import Serverless from 'serverless-http';
+import ServerlessHttp from 'serverless-http';
+
 
 
 const app = express();
@@ -41,4 +42,4 @@ router.use(express.static(path.resolve(__dirname, '..', 'build')));
 
 app.use(router);
 
-module.exports = Serverless(app)
+module.exports = ServerlessHttp(app)
