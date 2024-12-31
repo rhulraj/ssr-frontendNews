@@ -19,27 +19,14 @@ function Layout({children}){
   
     const dispatch = useDispatch()
     const isLogged = useSelector(state => state.auth.isLoggedIn)
-   const data = "hello"
+   
     
     async function logOut (){
        await dispatch(logOUt())
       
     }
     
-    async function fetchInfo(){
-      dispatch({type: 'LOADING_START'})
-      try{
-         await dispatch(fetchAllInfo());
-        await dispatch(fetchLatestNews())
-         await dispatch(fetchTopNews());
-        await dispatch(fetchInternationalNews())
-      }catch(error){
-
-      }finally{
-           dispatch({type:"LOADING_END"})
-      }
-        
-    }
+   
     function handleMenu (){
         setOpen(
           !isOpen
@@ -63,8 +50,19 @@ function Layout({children}){
     }
     
     useEffect(()=>{
-       fetchInfo()
-    }, [])
+      const fetchInfo = async() =>{
+       
+        try{
+           await dispatch(fetchAllInfo());
+          await dispatch(fetchLatestNews())
+           await dispatch(fetchTopNews());
+          await dispatch(fetchInternationalNews())
+        }catch(error){
+  
+        }
+          
+      }
+    }, [dispatch])
 
     useEffect(()=>{
       
