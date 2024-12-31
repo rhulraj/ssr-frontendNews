@@ -26,7 +26,7 @@ function Layout({children}){
       
     }
     
-    async function fetchInfo(){
+    const fetchInfo= async() =>{
       dispatch({type: 'LOADING_START'})
       try{
          await dispatch(fetchAllInfo());
@@ -64,7 +64,8 @@ function Layout({children}){
     
     useEffect(()=>{
        fetchInfo()
-    }, [data])
+    }, [fetchInfo])
+
     useEffect(()=>{
       
       if(typeof window !== "undefined"){
