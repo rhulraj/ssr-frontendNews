@@ -17,7 +17,7 @@ function CreateInfo(){
     const isLogged = useSelector(state => state.auth.isLoggedIn)
 
     function handleUserImage(e){
-        const {name, files} =e.target
+        const { files} =e.target
         setFiles([
             ...selectedfiles,
             files[0]
@@ -58,7 +58,7 @@ function CreateInfo(){
 
         
 
-        const response = await dispatch(createInfo(formData));
+        await dispatch(createInfo(formData));
     }
 
     return(

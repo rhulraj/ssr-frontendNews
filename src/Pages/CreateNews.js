@@ -17,7 +17,7 @@ function CreateNews(){
      const isLogged = useSelector(state => state.auth.isLoggedIn)
 
      function handleUserImage(e){
-         const {name, files} =e.target
+         const { files} =e.target
          setFiles([
              ...selectedfiles,
              files[0]
@@ -57,7 +57,7 @@ function CreateNews(){
              formData.append("img", file)
          })
          
-         const response = await dispatch(createNews(formData))
+         await dispatch(createNews(formData))
         
 }
     return(

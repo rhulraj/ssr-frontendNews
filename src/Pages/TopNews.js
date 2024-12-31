@@ -3,7 +3,6 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Layout from "../Layout/Layout";
 import './style.css'
-import logo from '../assets/logo.svg'
 import { useNavigate } from "react-router-dom";
 import { newsFetchById } from "../Redux/Slices/newsSlices";
 import Left from '../assets/LeftArrow.png'

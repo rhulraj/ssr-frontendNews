@@ -13,12 +13,12 @@ function InfoPage() {
     const dispatch = useDispatch();
     const data = useSelector(state => state.info.data)
     async function fetchData (){
-       const response = await dispatch(fetchById(id))
+       await dispatch(fetchById(id))
     }
     console.log(data)
     useEffect(()=>{
        fetchData()
-    },[])
+    },)
     return (
         <Layout>
             <div className="container text-black mx-10 mt-10 ">

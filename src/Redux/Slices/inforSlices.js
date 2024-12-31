@@ -51,6 +51,7 @@ export const deleteById = createAsyncThunk('infos/delte/:id', async(id)=>{
         error: "ohh No! Something went wrong . please try again"
     })
     const apiResponse = await response;
+    return apiResponse
    }catch(error){
     console.log(error)
    }

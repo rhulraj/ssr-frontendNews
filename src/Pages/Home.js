@@ -14,7 +14,7 @@ function Home(){
    const data = useSelector((state)=>state.info);
    const dispatch = useDispatch();
    const navigate = useNavigate();
-   const [zero,setZero] = useState(0);
+   const zero = 0;
 
    const newsData = useSelector((state)=> state.news)
    const latest = newsData?.latest;

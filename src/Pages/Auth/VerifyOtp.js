@@ -36,7 +36,7 @@ function VerifyOtp(){
 
         if(response.payload?.data?.success){
             
-            const apiResponse = await dispatch(createAccount(userData));
+         await dispatch(createAccount(userData));
            await dispatch(removeDetails())
             navigate('/auth/login')
         }

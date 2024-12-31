@@ -17,11 +17,11 @@ function NewsPage(){
     const data = useSelector(state => state.news.data)
 
     async function fetchData (){
-       const response = await dispatch(newsFetchById(id))
+       await dispatch(newsFetchById(id))
     }
     useEffect(()=>{
        fetchData()
-    },[])
+    })
     return (
         <Layout>
             <div className="container text-black mx-10 mt-10 ">

@@ -3,7 +3,7 @@ import React from 'react';
 import logo from '../assets/logo.svg';
 import menu from '../assets/menu.png'
 import { useEffect, useState } from 'react';
-import { fetchAllInfo, fetchById } from '../Redux/Slices/inforSlices';
+import { fetchAllInfo} from '../Redux/Slices/inforSlices';
 import { fetchInternationalNews, fetchLatestNews, fetchTopNews } from '../Redux/Slices/newsSlices';
 import { Link } from 'react-router-dom';
 import { logOUt } from '../Redux/Slices/authSlice';
@@ -19,19 +19,20 @@ function Layout({children}){
   
     const dispatch = useDispatch()
     const isLogged = useSelector(state => state.auth.isLoggedIn)
-    const admin = useSelector(state => state.auth.admin)
+   
     
     async function logOut (){
-      const response = await dispatch(logOUt())
+       await dispatch(logOUt())
+      
     }
     
     async function fetchInfo(){
       dispatch({type: 'LOADING_START'})
       try{
-        const info = await dispatch(fetchAllInfo());
-        const latest = await dispatch(fetchLatestNews())
-        const top = await dispatch(fetchTopNews());
-        const International = dispatch(fetchInternationalNews())
+         await dispatch(fetchAllInfo());
+        await dispatch(fetchLatestNews())
+         await dispatch(fetchTopNews());
+        await dispatch(fetchInternationalNews())
       }catch(error){
 
       }finally{
@@ -63,7 +64,7 @@ function Layout({children}){
     
     useEffect(()=>{
        fetchInfo()
-    },[])
+    },)
     useEffect(()=>{
       
       if(typeof window !== "undefined"){
@@ -72,7 +73,7 @@ function Layout({children}){
               window.removeEventListener('scroll', controlNavbar);
           }
       }
-      },[lastScroll])
+      },[lastScroll,isOpen])
 
     return(
         <>

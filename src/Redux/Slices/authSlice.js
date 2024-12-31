@@ -38,6 +38,7 @@ export const  logOUt = createAsyncThunk('auth/logOut' , async()=>{
         error: "something went wrong"
     })
     const apiResponse = await response;
+    return apiResponse
 })
 
 const authSlice = createSlice({
