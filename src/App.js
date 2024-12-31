@@ -1,7 +1,7 @@
 
 import React from 'react';
 import Home from './Pages/Home';
-import {Route , Routes} from 'react-router-dom';
+import { Route , Routes, StaticRouter} from 'react-router-dom';
 import CreateInfo from './Pages/CreateInfo';
 import Info from './Pages/Info';
 import CreateNews from './Pages/CreateNews';
@@ -18,7 +18,7 @@ import NewsPage from './Pages/NewsPage';
 
 
 function App() {
-   console.log(process.env.VITE_BACKEND_URL)
+   
   return (
     <Routes>
       <Route path='/' element = {<Home/>}/>
@@ -35,7 +35,6 @@ function App() {
       <Route path='/infos/:id' element= {<InfoPage/>} />
       <Route path='/news/:id' element={<NewsPage/>} />
     </Routes>
-     
     
   )
 }

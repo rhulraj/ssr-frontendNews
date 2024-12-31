@@ -13,10 +13,11 @@ import { store } from '../src/Redux/store.js';
 const app = express();
 const router =express.Router();
 
+app.use(express.static(path.resolve(__dirname, '..', 'build')));
 const port = 8000;
 const context = {};
 
-router.use('^/$', (req,res)=>{
+app.get('/', (req,res)=>{
      fs.readFile(path.resolve('./build/index.html'), 'utf-8', (error,data)=>{
         if(error){
             console.log(error)
@@ -35,10 +36,20 @@ router.use('^/$', (req,res)=>{
         )
      })
 })
+// Catch-all handler for all other routes (including dynamic routes)
+app.get('*', (req, res) => {
+    fs.readFile(path.resolve('./build/index.html'), 'utf-8', (error, data) => {
+      if (error) {
+        console.log(error);
+        return res.status(500).send('Error', error);
+      }
+      res.setHeader('Content-Type', 'text/html');
+      res.send(data); // Always return index.html for any route
+    });
+  });
 
-router.use(express.static(path.resolve(__dirname, '..', 'build')));
 
-app.use(router);
+
 
 app.listen(port, ()=>{
     console.log('server is running on port 8000')
