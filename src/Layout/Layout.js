@@ -62,6 +62,7 @@ function Layout({children}){
         }
           
       }
+      fetchInfo()
     }, [dispatch])
 
     useEffect(()=>{
