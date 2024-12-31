@@ -1,7 +1,7 @@
 
 import React from 'react';
 import Home from './Pages/Home';
-import { Route , Routes, StaticRouter} from 'react-router-dom';
+import { Route , Routes} from 'react-router-dom';
 import CreateInfo from './Pages/CreateInfo';
 import Info from './Pages/Info';
 import CreateNews from './Pages/CreateNews';
