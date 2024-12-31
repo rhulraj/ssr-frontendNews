@@ -17,13 +17,13 @@ function InfoPage() {
     useEffect(()=>{
         const fetchData = async () =>{
             try{
-                await dispatch(fetchById(id))
+                 await dispatch(fetchById(id))
             }catch(error){
                  console.log(error)
             }
         }
        fetchData()
-    },[])
+    },[dispatch,id])
     return (
         <Layout>
             <div className="container text-black mx-10 mt-10 ">
