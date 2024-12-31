@@ -8,10 +8,11 @@ import { StaticRouter } from 'react-router-dom';
 import {Toaster} from 'react-hot-toast';
 import {Provider} from 'react-redux';
 import { store } from '../src/Redux/store.js';
+import { HelmetProvider } from 'react-helmet-async';
 
 
 const app = express();
-const router =express.Router();
+
 
 app.use(express.static(path.resolve(__dirname, '..', 'build')));
 const port = 8000;
@@ -23,16 +24,24 @@ app.get('/', (req,res)=>{
             console.log(error)
             return response.status(500).send('Error', error)
         }
+        const helmetContext = {}
+        const html = ReactDOMServer.renderToString(
+            <Provider store={store}>
+                <StaticRouter  location={req.url} context ={context}>
+                    <HelmetProvider context={helmetContext}>
+                    <App />
+                    <Toaster />
+                    </HelmetProvider>
+                </StaticRouter>
+                </Provider>
+        )
+
         res.setHeader("Content-Type", "text/html");
+        const { title, meta } = helmetContext;
         res.send(
-            data.replace('<div id="root"></div>', `<div id="root">${ReactDOMServer.renderToString(
-                <Provider store={store}>
-                    <StaticRouter  location={req.url} context ={context}>
-                        <App />
-                        <Toaster />
-                    </StaticRouter>
-                    </Provider>
-            )}</div>`)
+            data.replace('<div id="root"></div>', `<div id="root">${html}</div>`)
+            .replace('<title></title>', `<title>${title}</title>`)
+            .replace('<meta charset = "UTF-8",', meta.toString())
         )
      })
 })

@@ -6,6 +6,7 @@ import { newsFetchById } from "../Redux/Slices/newsSlices";
 import { useEffect } from "react";
 import './style.css'
 import './page.css'
+import HemlmetMeta from "../meta/HelmetMeta";
 
 
 function NewsPage(){
@@ -21,10 +22,13 @@ function NewsPage(){
     }
     useEffect(()=>{
        fetchData()
-    })
+    },[id])
     return (
         <Layout>
             <div className="container text-black mx-10 mt-10 ">
+            <HemlmetMeta url={`https://vedicinfos.in/news${data._id}`} image={data.image1} title={data.title} description={data.body1}/>
+
+            
                {data.title && <h1 className="page">{data.title}</h1> }
                 {data.image1 && <img src={data.image1 || null} alt="" className="mx-auto my-6" />}
                 <p className="page">{data.body1}</p>

@@ -7,6 +7,8 @@ import Layout from "../Layout/Layout";
 import './style.css'
 import { useNavigate } from "react-router-dom";
 import { fetchById } from "../Redux/Slices/inforSlices";
+import HemlmetMeta from "../meta/HelmetMeta"
+import logo from '../assets/logo.svg'
 
 function Info(){
 
@@ -38,7 +40,7 @@ function Info(){
     return(<Layout>
       <div className="container font-serif shadow-lg p-2 mx-2">
          
-        
+      <HemlmetMeta url={'https://vedicinfos.in/info'} image={logo || null} title={'vedic kshatriya'} description={'vedic information of kshatriyas and news keep you update '}/>
          <h1 className="text-center ">Vedic Facts</h1>
          {data && data.map(el=>{
             return(

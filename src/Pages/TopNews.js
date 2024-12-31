@@ -7,6 +7,8 @@ import { useNavigate } from "react-router-dom";
 import { newsFetchById } from "../Redux/Slices/newsSlices";
 import Left from '../assets/LeftArrow.png'
 import Right from '../assets/RightArrow.png'
+import HemlmetMeta from "../meta/HelmetMeta";
+import logo from '../assets/logo.svg'
 function TopNews(){
 
 
@@ -38,6 +40,7 @@ function TopNews(){
 
     return(<Layout>
       <div className="container font-serif shadow-lg p-2 mx-2">
+      <HemlmetMeta url={'https://vedicinfos.in/top'} image={logo || null} title={'vedic information'} description={'vedic information of kshatriyas and news keep you update '}/>
          <h1 className="text-center ">TOP NEWS</h1>
          {data.map(el=>{
             return(

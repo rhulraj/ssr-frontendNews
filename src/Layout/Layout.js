@@ -19,7 +19,7 @@ function Layout({children}){
   
     const dispatch = useDispatch()
     const isLogged = useSelector(state => state.auth.isLoggedIn)
-   
+   const data = "hello"
     
     async function logOut (){
        await dispatch(logOUt())
@@ -64,7 +64,7 @@ function Layout({children}){
     
     useEffect(()=>{
        fetchInfo()
-    },)
+    }, [data])
     useEffect(()=>{
       
       if(typeof window !== "undefined"){

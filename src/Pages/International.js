@@ -8,6 +8,8 @@ import Right from '../assets/RightArrow.png'
 import { useNavigate } from "react-router-dom";
 
 import { newsFetchById } from "../Redux/Slices/newsSlices";
+import HemlmetMeta from "../meta/HelmetMeta";
+import logo from '../assets/logo.svg'
 
 function InternationalNews(){
 
@@ -40,6 +42,7 @@ function InternationalNews(){
 
     return(<Layout>
       <div className="container font-serif shadow-lg p-2 mx-2">
+      <HemlmetMeta url={'https://vedicinfos.in/international'} image={logo || null} title={'vedic information'} description={'vedic information of kshatriyas and news keep you update '}/>
          <h1 className="text-center ">INTERNATIONAL NEWS</h1>
          {data.map(el=>{
             return(

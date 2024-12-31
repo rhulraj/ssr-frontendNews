@@ -14,12 +14,14 @@ import Login from './Pages/Auth/Login';
 import CreatePage from './Pages/CreatePage';
 import InfoPage from './Pages/InfoPage';
 import NewsPage from './Pages/NewsPage';
+import { HelmetProvider } from 'react-helmet-async';
 
 
 
 function App() {
    
   return (
+    <HelmetProvider>
     <Routes>
       <Route path='/' element = {<Home/>}/>
       <Route path='/admin/createInfo' element = { <CreateInfo/>} />
@@ -35,6 +37,7 @@ function App() {
       <Route path='/infos/:id' element= {<InfoPage/>} />
       <Route path='/news/:id' element={<NewsPage/>} />
     </Routes>
+    </HelmetProvider>
     
   )
 }

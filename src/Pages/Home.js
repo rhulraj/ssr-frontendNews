@@ -8,6 +8,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { fetchById } from "../Redux/Slices/inforSlices";
 import './style.css'
 import { newsFetchById } from "../Redux/Slices/newsSlices";
+import HemlmetMeta from "../meta/HelmetMeta";
+import logo from '../assets/logo.svg'
 
 
 function Home(){
@@ -49,6 +51,7 @@ function Home(){
     return(
     <Layout>
        <div className="container">
+         <HemlmetMeta url={'https://vedicinfos.in/'} image={logo || null} title={'vedic info'} description={'vedic information of kshatriyas and news keep you update '}/>
           <div className="m-8 mx-12">
             <h1 className=" text-center m-4">Vedic Facts</h1>
              <div>
