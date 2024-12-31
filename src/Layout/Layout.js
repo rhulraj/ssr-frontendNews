@@ -73,7 +73,7 @@ function Layout({children}){
               window.removeEventListener('scroll', controlNavbar);
           }
       }
-      },[lastScroll,isOpen])
+      })
 
     return(
         <>
