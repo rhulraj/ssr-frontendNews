@@ -13,10 +13,15 @@ function InfoPage() {
     const {id} = useParams();
     const dispatch = useDispatch();
     const data = useSelector(state => state.info.data)
-    async function fetchData (){
-       await dispatch(fetchById(id))
-    }
+   
     useEffect(()=>{
+        const fetchData = async () =>{
+            try{
+                await dispatch(fetchById(id))
+            }catch(error){
+                 console.log(error)
+            }
+        }
        fetchData()
     },[])
     return (

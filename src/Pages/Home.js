@@ -76,7 +76,7 @@ function Home(){
             <h1 className=" text-center mb-8">Latest News</h1>
 
            <div className="relative " onClick={()=>{handleNewsFetchId(latest[zero]?._id)}}>
-            <img src={latest && latest[zero]?.image1 || null} alt="" className="m-auto lg:w-1/2"/>
+            <img src={ latest[zero]?.image1 || null} alt="" className="m-auto lg:w-1/2"/>
             <h1 className="absolute left-1/2 bottom-3 text-white">{latest[zero]?.title}</h1>
            </div>
            <div className="lg:w-3/4 m-auto">

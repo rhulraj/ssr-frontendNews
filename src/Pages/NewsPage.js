@@ -17,10 +17,15 @@ function NewsPage(){
     const dispatch = useDispatch();
     const data = useSelector(state => state.news.data)
 
-    async function fetchData (){
-       await dispatch(newsFetchById(id))
-    }
+
     useEffect(()=>{
+        const fetchData = async () =>{
+            try{
+                await dispatch(newsFetchById(id))
+            }catch(error){
+                 console.log(error)
+            }
+        }
        fetchData()
     },[])
     return (
