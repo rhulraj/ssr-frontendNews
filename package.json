@@ -13,7 +13,7 @@
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "ignore-styles": "^5.0.1",
-    "react": "^^18.0.0",
+    "react": "^18.0.0",
     "react-awesome-slider": "^4.1.0",
     "react-dom": "^19.0.0",
     "react-helmet-async": "^2.0.5",
